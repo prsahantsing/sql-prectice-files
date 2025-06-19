@@ -1,4 +1,5 @@
-
+# all the code are belongs to trigger prectise after insert , after delete after update 
+	
 
 
  create  table employeelogs 
