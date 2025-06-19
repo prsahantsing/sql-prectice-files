@@ -360,3 +360,29 @@ EXEC proc_ordersovercity
 
 
 
+select * from dbo.Sales01
+
+
+
+create table productlogs ( productid int , productlog varchar(100) , date datetime  )
+select * from productlogs
+
+create trigger trg_new_product_add 
+on dbo.sales01
+after insert 
+as
+begin
+        insert into productlogs 
+        select productid , 
+        'A NEW PRODUCT ID HAS BEE ADDED WITH PRODUCTID : ' + CAST(PRODUCTID AS VARCHAR ) ,
+        GETDATE()
+        FROM inserted
+end
+
+select * from productlogs
+SELECT * FROM DBO.SALES01
+
+INSERT INTO DBO.Sales01 (Saleid , productid , quantity , saledate )
+values ( 7 , 6 , 10 , '2025-06-15' )
+
+

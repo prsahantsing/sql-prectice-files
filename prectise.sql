@@ -352,10 +352,30 @@ with cte_months as
 
 
 
+select * from dbo.Sales
+
+
+alter procedure pro_totalrevenue_totalcustomer_bystoreid @storeid int 
+as 
+begin
+
+declare @totalrevenue float , 
+@totalcustomers int 
+select  @totalrevenue = sum(revenue)  , 
+ @totalcustomers = count(customerid)  
+from dbo.Sales
+where storeid = @storeid 
+
+print('storeid' +@storeid + 'has  totalrevenue :' + cast(@totalrevenue as varchar) + 'and' + 'totalcustomers : ' + cast(@totalcustomers  as varchar))
+end 
 
 
 
+exec pro_totalrevenue_totalcustomer_bystoreid @storeid = 92
 
+
+
+sele
 
 
 

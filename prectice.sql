@@ -267,10 +267,44 @@ select sum(revenue) as totalsales
 from dbo.Sales
 where storeid = @storeid
 end 
-
++
 exec pro_tsales_by_storeid @storeid = 46
 
 
+select * from dbo.sales
 
+drop table customerlog
+
+create table customerlog
+(
+customerid int ,
+customerlog varchar (250) , 
+joining_date datetime )
+
+select * from customerlog
+
+
+alter trigger trg_new_customer_log on dbo.sales
+after insert 
+as
+begin
+    insert into customer_log 
+    (customerrid , customerlog , joining_date ) 
+    select customerid , 
+    'a new customer has just logged in ' + cast(customerid  as varchar), 
+    GETDATE() 
+    from inserted 
+end
+
+select * from dbo.sales
+
+
+insert into dbo.sales
+(customerid , ProductID , storeid )
+values ( '101' , '51' , '84')
+
+
+
+end 
 
 

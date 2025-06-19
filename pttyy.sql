@@ -6,5 +6,7 @@ city varchar(50) )
 insert into gityy 
 (firstname , lastname , city )
 values 
-( 'prashant' , 'singh', 'blb');
+( 'deepak' , 'singh', 'blb');
 select * from gityy
+
+
