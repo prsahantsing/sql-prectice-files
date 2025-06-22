@@ -4,7 +4,7 @@ CREATE TABLE Products (
     ProductName NVARCHAR(100),
     Category NVARCHAR(50)
 );
-
+--a new producttable has beenn created 
 -- Sales table
 CREATE TABLE Sales (
     SaleID INT PRIMARY KEY,
@@ -13,6 +13,8 @@ CREATE TABLE Sales (
     Price DECIMAL(10, 2),
     SaleDate DATE
 );
+--a new  sales table has been created so far 
+
 INSERT INTO Products (ProductID, ProductName, Category) VALUES
 (1, 'Laptop', 'Electronics'),
 (2, 'Smartphone', 'Electronics'),
@@ -47,6 +49,7 @@ INSERT INTO Sales (SaleID, ProductID, Quantity, Price, SaleDate) VALUES
 (14, 5, 50, 10.00, '2025-05-01'),
 (15, 4, 7, 300.00, '2025-05-10');
 
+---everything is ready to performe sql cte task to ffetch the maxrevenue product by month wise 
 
 select * from products
 select * from sales
