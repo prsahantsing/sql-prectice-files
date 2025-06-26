@@ -201,7 +201,18 @@ select * from employeess
 
 update employeess
 set salary = 50000
-where employeeid = 1
+where emp
+
+
+
+
+
+
+
+
+
+
+
 
 
 

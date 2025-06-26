@@ -129,32 +129,32 @@ begin transaction
 BEGIN TRY 
 BEGIN TRANSACTION 
 -----UUPADTING BANK ACCOUNT NUMBER 2 with credit
-        UPDATE BANKACCOUNTS 
-        SET BALANCE = BALANCE + 200
-        WHERE ACCOUNTID = 2 
+            UPDATE BANKACCOUNTS 
+            SET BALANCE = BALANCE + 200
+            WHERE ACCOUNTID = 2 
 
 
-----UPDATEING BANKACCOUNT NUMBER 1 with debit
-    UPDATE BankAccounts
-    SET BALANCE = BALANCE - 5000
-    WHERE ACCOUNTID = 1
+    ----UPDATEING BANKACCOUNT NUMBER 1 with debit
+        UPDATE BankAccounts
+        SET BALANCE = BALANCE - 5000
+        WHERE ACCOUNTID = 1
 
-    ---rollback for first transaction 
-    save transaction transfer1
+        ---rollback for first transaction 
+        save transaction transfer1
   
   
 
-----updating bankaccountid 3 with credit
-       update BankAccounts
-       set balance = balance + 300
-       where accountid = 3
+    ----updating bankaccountid 3 with credit
+           update BankAccounts
+           set balance = balance + 300
+           where accountid = 3
 
----updating bankaccountid 4 with debit 
-    update BankAccounts
-    set balance = balance - 300
-    where accountid = 4
-    --rollback for 2nd transfer
-      SAVE TRANSACTION TRANSFER2
+    ---updating bankaccountid 4 with debit 
+        update BankAccounts
+        set balance = balance - 300
+        where accountid = 4
+        --rollback for 2nd transfer
+          SAVE TRANSACTION TRANSFER2
 
     COMMIT 
     PRINT 'TANSECTIONS HAS BEEN SUCCESSFULLY COMPLETED' 
@@ -169,7 +169,26 @@ BEGIN TRANSACTION
 
     select * from BankAccounts
 
-        
+create table customers 
+(customerid int , 
+fullname varchar(50) ,
+emailid varchar(50) ,
+dateofpurchase date )
+
+
+drop table customers
+
+select * from customers
+
+create view customers_details as
+select * from customers
+
+
+drop view customers_details
+
+
+   BEGIN TRY 
+             
 
 
 
